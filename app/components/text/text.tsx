@@ -1,12 +1,13 @@
 import React from 'react';
-import {Text as RNText, TextStyle} from 'react-native';
-import {Typography, Colors} from 'styles';
+import { Text as RNText, TextStyle } from 'react-native';
+import { Typography, Colors } from 'styles';
 
 export interface TextProps {
   size?: 'XXS' | 'XS' | 'S' | 'M' | 'L' | 'XL' | 'XXL';
   style?: TextStyle;
   bold?: boolean;
   color?: string;
+  numberOfLines?: number;
   children: React.ReactNode;
 }
 
@@ -16,11 +17,13 @@ const Text = ({
   style,
   bold,
   color,
+  numberOfLines,
   ...rest
 }: TextProps): React.ReactElement => (
   <RNText
     {...rest}
     allowFontScaling={false}
+    numberOfLines={numberOfLines}
     style={{
       ...style,
       fontSize: getSize(size),
@@ -40,6 +43,7 @@ Text.defaultProps = {
   color: Colors.textDefault,
   bold: false,
   size: 'M',
+  numberOfLines: 0,
 };
 
 const getSize = (size: string): number => {
