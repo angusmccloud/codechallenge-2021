@@ -1,14 +1,17 @@
 import React from 'react';
-import {TouchableOpacity, View} from 'react-native';
-import {Text} from 'components';
-import {Colors} from 'styles';
+import { TouchableOpacity, View } from 'react-native';
+import { Icon, Text } from 'components';
+import { Colors } from 'styles';
+import { eIcons } from 'models';
 
 interface ButtonProps {
-  buttonStyle: 'primary' | 'secondary' | 'hollow';
+  buttonStyle: 'primary' | 'secondary' | 'hollow' | 'tertiary';
   disabled?: boolean;
   activeOpacity?: number;
   text: string;
   size?: 'Large' | 'Small';
+  iconName?: eIcons;
+  iconSize?: number;
   onPress: () => void;
   testID?: string;
 }
@@ -19,6 +22,8 @@ const Button = ({
   activeOpacity,
   text,
   size,
+  iconName,
+  iconSize,
   onPress,
   testID,
 }: ButtonProps): React.ReactElement => {
@@ -29,11 +34,14 @@ const Button = ({
     : Colors.buttonPrimaryBackground;
   let borderWidth = 0;
   let borderColor = Colors.buttonHollowBorder;
-  // These 5 are currently consistent on all buttons, adjust if needed
+  let borderRadius = 6;
+  let shadowRadius = 2;
+  let shadowOffset = { width: 0, height: 1 };
+  let shadowOpacity = 0.4;
+  // These 4 are currently consistent on all buttons, adjust if needed
   const textSize = size === 'Small' ? 'XS' : 'S';
   const padding = size === 'Small' ? 10 : 14;
   const textBold = true;
-  const borderRadius = 6;
   const shadowColor = Colors.borderShadow;
 
   if (buttonStyle === 'secondary') {
@@ -46,12 +54,16 @@ const Button = ({
       ? Colors.buttonHollowDisabledText
       : Colors.buttonHollowText;
     backgroundColor = Colors.buttonHollowBackground;
-    borderWidth = 1;
-  }
-
-  if (disabled) {
-    textColor = Colors.buttonDisabledText;
-    backgroundColor = Colors.buttonDisabledBackground;
+    borderWidth = disabled ? 0 : 1;
+  } else if (buttonStyle === 'tertiary') {
+    borderRadius = 0;
+    shadowRadius = 0;
+    shadowOpacity = 0;
+    shadowOffset = { width: 0, height: 0 };
+    textColor = disabled
+      ? Colors.buttonSecondaryDisabledText
+      : Colors.buttonSecondaryText;
+    backgroundColor = 'rgba(0, 0, 0, 0)'; // Transparent background
   }
 
   const pressHandler = () => {
@@ -74,15 +86,23 @@ const Button = ({
           borderColor,
           borderRadius,
           shadowColor,
-          shadowOpacity: 0.4,
-          shadowOffset: {width: 0, height: 1},
-          shadowRadius: 2,
+          shadowOpacity,
+          shadowOffset,
+          shadowRadius,
           margin: 2,
           paddingTop: padding,
           paddingBottom: padding,
           paddingLeft: padding * 2,
           paddingRight: padding * 2,
+          flexDirection: 'row',
         }}>
+        {iconName !== undefined && (
+          <Icon
+            icon={iconName}
+            iconSize={iconSize}
+            containerStyle={{ paddingRight: 5 }}
+          />
+        )}
         <Text size={textSize} bold={textBold} color={textColor}>
           {text}
         </Text>
@@ -96,6 +116,8 @@ Button.defaultProps = {
   activeOpacity: 0.8,
   testID: '',
   size: 'Large',
+  iconName: undefined,
+  iconSize: 16,
 };
 
 export default Button;

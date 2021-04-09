@@ -1,5 +1,6 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
+import { eIcons } from 'models';
 import Button from './button';
 
 const mockfn = jest.fn();
@@ -44,6 +45,29 @@ describe('Button Component rendered correctly', () => {
         buttonStyle="hollow"
         size="Large"
         text="Hollow"
+        onPress={mockfn}
+      />,
+    );
+    expect(button).toMatchSnapshot();
+  });
+  it('Button Style Tertiary', () => {
+    const button = renderer.create(
+      <Button
+        buttonStyle="tertiary"
+        size="Large"
+        text="Tertiary"
+        onPress={mockfn}
+      />,
+    );
+    expect(button).toMatchSnapshot();
+  });
+  it('Button With Icon', () => {
+    const button = renderer.create(
+      <Button
+        buttonStyle="tertiary"
+        iconName={eIcons.about}
+        iconSize={16}
+        text="Button With Icon"
         onPress={mockfn}
       />,
     );
