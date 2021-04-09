@@ -1,0 +1,180 @@
+import {StyleSheet, Dimensions} from 'react-native';
+import {getStatusBarHeight} from 'react-native-status-bar-height';
+import {Colors} from 'styles';
+
+const deviceWidth = Dimensions.get('window').width;
+const deviceHeight = Dimensions.get('window').height - getStatusBarHeight(true);
+
+// This is all mock data from the placeholder app, can be deleted once the placeholder app.tsx is removed
+const Styles = StyleSheet.create({
+  bedSummaryWrapper: {
+    backgroundColor: Colors.appBackground,
+    flexDirection: 'row',
+    height: 68,
+    justifyContent: 'flex-start',
+    overflow: 'hidden',
+    padding: 10,
+  },
+  body: {
+    backgroundColor: Colors.appBackground,
+    height: deviceHeight,
+    width: deviceWidth,
+  },
+  bodyNoSideNavWrapper: {
+    backgroundColor: Colors.appBackground,
+    flex: 1,
+    height: deviceHeight,
+    width: deviceWidth,
+  },
+  bodyRightSideHeaderWrapper: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    paddingBottom: 16,
+    paddingTop: 16,
+  },
+  bodyWithSideNavContentWrapper: {
+    paddingLeft: deviceWidth * 0.05,
+    paddingRight: deviceWidth * 0.05,
+  },
+  bodyWithSideNavWrapper: {
+    backgroundColor: Colors.appBackground,
+    flex: 3,
+    height: deviceHeight,
+  },
+  centerAll: {
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  currentCapacityIndicator: {
+    backgroundColor: Colors.blueLight,
+    borderRadius: 20,
+    marginLeft: 5,
+    paddingLeft: 10,
+    paddingRight: 10,
+  },
+  currentUserWrapper: {
+    flexDirection: 'row',
+    overflow: 'hidden',
+  },
+  machineEmptyWrapper: {
+    alignItems: 'center',
+    backgroundColor: Colors.white,
+    borderColor: Colors.grayMedium,
+    borderRadius: 30,
+    borderStyle: 'dashed',
+    borderWidth: 2,
+    height: 60,
+    justifyContent: 'center',
+    margin: 2,
+    marginTop: 10,
+    width: deviceWidth * 0.18,
+  },
+  machineHideWhileDragging: {
+    // Size of machineWrapper, push the content off the bottom, then hide it
+    height: 72,
+    overflow: 'hidden',
+    paddingTop: 72,
+  },
+  machineWrapper: {
+    alignItems: 'center',
+    backgroundColor: Colors.white,
+    borderColor: Colors.grayMedium,
+    borderRadius: 30,
+    borderWidth: 1,
+    flexDirection: 'row',
+    height: 60,
+    justifyContent: 'flex-start',
+    margin: 2,
+    marginTop: 10,
+    paddingLeft: 20,
+    shadowColor: Colors.borderShadow,
+    shadowOffset: {width: 0, height: 0},
+    shadowOpacity: 0.2,
+    shadowRadius: 1,
+    width: deviceWidth * 0.18,
+  },
+  modalBackground: {
+    backgroundColor: 'rgba(52, 52, 52, 0.6)',
+    bottom: 0,
+    left: 0,
+    position: 'absolute',
+    right: 0,
+    top: 0,
+  },
+  modalBody: {
+    backgroundColor: Colors.white,
+    borderRadius: 10,
+    justifyContent: 'center',
+    marginBottom: '10%',
+    marginLeft: '20%',
+    marginRight: '20%',
+    marginTop: '10%',
+    maxHeight: '80%',
+    overflow: 'hidden',
+    width: '60%',
+  },
+  modalHeader: {
+    backgroundColor: Colors.blueBackground,
+    borderBottomColor: Colors.blueLight,
+    borderBottomWidth: 1,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    padding: 10,
+  },
+  sectionSeparatorLine: {
+    backgroundColor: Colors.sectionLine,
+    flex: 1,
+    height: 1,
+    marginBottom: 36,
+    marginTop: 36,
+  },
+  sectionSeparatorLineSmallMargin: {
+    backgroundColor: Colors.sectionLine,
+    flex: 1,
+    height: 1,
+    marginBottom: 16,
+    marginTop: 16,
+  },
+  sectionWrapper: {
+    backgroundColor: Colors.tileBackground,
+    borderRadius: 8,
+    margin: 2,
+    marginBottom: 8,
+    padding: 10,
+    shadowColor: Colors.borderShadow,
+    shadowOffset: {width: 0, height: 2},
+    shadowOpacity: 0.2,
+    shadowRadius: 2,
+  },
+  sectionWrapperNoPadding: {
+    backgroundColor: Colors.tileBackground,
+    borderRadius: 8,
+    margin: 2,
+    marginBottom: 8,
+    shadowColor: Colors.borderShadow,
+    shadowOffset: {width: 0, height: 2},
+    shadowOpacity: 0.2,
+    shadowRadius: 2,
+  },
+  sideNavVersionInfo: {
+    backgroundColor: Colors.blueBackground,
+    borderColor: Colors.blueLight,
+    borderRightWidth: 1,
+    borderTopWidth: 1,
+    padding: 10,
+  },
+  sideNavWrapper: {
+    backgroundColor: Colors.blueBackground,
+    borderColor: Colors.blueLight,
+    borderRightWidth: 1,
+    flex: 1,
+    height: deviceHeight,
+  },
+  textOnlyWrapper: {
+    paddingLeft: deviceWidth * 0.1,
+    paddingRight: deviceWidth * 0.4,
+    paddingTop: deviceHeight * 0.15,
+  },
+});
+
+export default Styles;
