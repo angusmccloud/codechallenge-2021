@@ -11,7 +11,8 @@ interface ButtonProps {
     | 'hollow'
     | 'tertiary'
     | 'calculatorPrimary'
-    | 'calculatorSecondary';
+    | 'calculatorSecondary'
+    | 'calculatorSecondaryWide';
   disabled?: boolean;
   activeOpacity?: number;
   text: string;
@@ -48,7 +49,7 @@ const Button = ({
   let shadowOpacity = 0.4;
   let paddingVertical = size === 'Small' ? 10 : 14;
   let paddingHorizontal = size === 'Small' ? 20 : 28;
-  let minWidth = 0;
+  let minWidth = '1%';
   // These 3 are currently consistent on all buttons, adjust if needed
   const textSize = size === 'Small' ? 'S' : 'M';
   const textBold = true;
@@ -75,10 +76,18 @@ const Button = ({
       : Colors.buttonSecondaryText;
     backgroundColor = 'rgba(0, 0, 0, 0)'; // Transparent background
   } else if (buttonStyle === 'calculatorPrimary') {
-    minWidth = 70;
+    minWidth = '20%';
     paddingHorizontal = 20;
   } else if (buttonStyle === 'calculatorSecondary') {
-    minWidth = 70;
+    minWidth = '20%';
+    paddingHorizontal = 20;
+    textColor = disabled
+      ? Colors.buttonHollowDisabledText
+      : Colors.buttonHollowText;
+    backgroundColor = Colors.buttonHollowBackground;
+    borderWidth = disabled ? 0 : 1;
+  } else if (buttonStyle === 'calculatorSecondaryWide') {
+    minWidth = '44%';
     paddingHorizontal = 20;
     textColor = disabled
       ? Colors.buttonHollowDisabledText

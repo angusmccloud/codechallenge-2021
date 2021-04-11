@@ -74,8 +74,8 @@ const Styles = StyleSheet.create({
   sectionWrapper: {
     backgroundColor: Colors.tileBackground,
     borderRadius: 8,
-    margin: 2,
-    marginBottom: 8,
+    marginTop: 0,
+    margin: 10,
     padding: 10,
     shadowColor: Colors.borderShadow,
     shadowOffset: {width: 0, height: 2},
