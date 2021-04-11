@@ -79,7 +79,7 @@ const Styles = StyleSheet.create({
     padding: 10,
     shadowColor: Colors.borderShadow,
     shadowOffset: {width: 0, height: 2},
-    shadowOpacity: 0.2,
+    shadowOpacity: 0.4,
     shadowRadius: 2,
   },
   textOnlyWrapper: {

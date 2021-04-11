@@ -45,7 +45,7 @@ const Button = ({
   let borderColor = Colors.buttonHollowBorder;
   let borderRadius = 6;
   let shadowRadius = 2;
-  let shadowOffset = {width: 0, height: 1};
+  let shadowOffset = {width: 0, height: 2};
   let shadowOpacity = 0.4;
   let paddingVertical = size === 'Small' ? 10 : 14;
   let paddingHorizontal = size === 'Small' ? 20 : 28;

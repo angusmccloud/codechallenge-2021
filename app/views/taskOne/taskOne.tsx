@@ -109,7 +109,7 @@ const TaskOneScreen = ({route, navigation}): React.ReactElement => {
   return (
     <SafeAreaView>
       <View style={Styles.body}>
-        <View style={{padding: 20}}>
+        <View style={[Styles.sectionWrapper, {marginTop: 10}]}>
           <Text size="L">{formula}</Text>
         </View>
         <View style={Styles.calculatorRow}>
