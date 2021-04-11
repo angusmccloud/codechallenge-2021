@@ -9,4 +9,5 @@ export enum eIcons {
   taskFourFocused,
   about,
   aboutFocused,
+  backspace,
 }

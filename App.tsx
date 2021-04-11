@@ -10,7 +10,7 @@ import {
   TaskFourScreen,
   AboutScreen,
 } from 'views';
-import {Colors} from 'styles';
+import {Colors, Typography} from 'styles';
 import { Icon } from 'components';
 import { eIcons } from 'models';
 
@@ -19,9 +19,7 @@ const NavOptions: StackNavigationOptions = {
     backgroundColor: Colors.blueDark,
   },
   headerTintColor: Colors.white,
-  headerTitleStyle: {
-    fontWeight: 'bold',
-  },
+  headerTitleStyle: Typography.fontBold,
 };
 
 const TaskOneStack = createStackNavigator();

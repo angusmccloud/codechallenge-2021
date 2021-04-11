@@ -1,4 +1,4 @@
-import {PixelRatio} from 'react-native';
+import {PixelRatio, TextStyle} from 'react-native';
 
 const scaleFont = (size: number): number => {
   return size * PixelRatio.getFontScale();
@@ -22,12 +22,12 @@ export const fontSizeXL = scaleFont(26);
 export const fontSizeXXL = scaleFont(36);
 
 // FONT STYLE
-export const fontRegular = {
+export const fontRegular: TextStyle = {
   fontFamily: fontFamilyRegular,
   fontWeight: fontWeightRegular,
 };
 
-export const fontBold = {
+export const fontBold: TextStyle = {
   fontFamily: fontFamilyBold,
   fontWeight: fontWeightBold,
 };

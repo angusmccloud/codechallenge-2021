@@ -61,6 +61,28 @@ describe('Button Component rendered correctly', () => {
     );
     expect(button).toMatchSnapshot();
   });
+  it('Button Style Calculator Primary', () => {
+    const button = renderer.create(
+      <Button
+        buttonStyle="calculatorPrimary"
+        size="Large"
+        text="Tertiary"
+        onPress={mockfn}
+      />,
+    );
+    expect(button).toMatchSnapshot();
+  });
+  it('Button Style Calculator Secondary', () => {
+    const button = renderer.create(
+      <Button
+        buttonStyle="calculatorSecondary"
+        size="Large"
+        text="Tertiary"
+        onPress={mockfn}
+      />,
+    );
+    expect(button).toMatchSnapshot();
+  });
   it('Button With Icon', () => {
     const button = renderer.create(
       <Button

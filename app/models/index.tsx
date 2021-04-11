@@ -4,3 +4,4 @@ import {eIcons} from 'models/icons/icons';
 export {eIcons};
 
 // Export Interfaces
+export type iCalcHistory = import('models/calculator/calculator').iCalcHistory;

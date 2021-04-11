@@ -5,13 +5,20 @@ import {Colors} from 'styles';
 import {eIcons} from 'models';
 
 interface ButtonProps {
-  buttonStyle: 'primary' | 'secondary' | 'hollow' | 'tertiary';
+  buttonStyle:
+    | 'primary'
+    | 'secondary'
+    | 'hollow'
+    | 'tertiary'
+    | 'calculatorPrimary'
+    | 'calculatorSecondary';
   disabled?: boolean;
   activeOpacity?: number;
   text: string;
   size?: 'Large' | 'Small';
   iconName?: eIcons;
   iconSize?: number;
+  iconColor?: string;
   onPress: () => void;
   testID?: string;
 }
@@ -24,6 +31,7 @@ const Button = ({
   size,
   iconName,
   iconSize,
+  iconColor,
   onPress,
   testID,
 }: ButtonProps): React.ReactElement => {
@@ -38,9 +46,11 @@ const Button = ({
   let shadowRadius = 2;
   let shadowOffset = {width: 0, height: 1};
   let shadowOpacity = 0.4;
-  // These 4 are currently consistent on all buttons, adjust if needed
-  const textSize = size === 'Small' ? 'XS' : 'S';
-  const padding = size === 'Small' ? 10 : 14;
+  let paddingVertical = size === 'Small' ? 10 : 14;
+  let paddingHorizontal = size === 'Small' ? 20 : 28;
+  let minWidth = 0;
+  // These 3 are currently consistent on all buttons, adjust if needed
+  const textSize = size === 'Small' ? 'S' : 'M';
   const textBold = true;
   const shadowColor = Colors.borderShadow;
 
@@ -64,6 +74,17 @@ const Button = ({
       ? Colors.buttonSecondaryDisabledText
       : Colors.buttonSecondaryText;
     backgroundColor = 'rgba(0, 0, 0, 0)'; // Transparent background
+  } else if (buttonStyle === 'calculatorPrimary') {
+    minWidth = 70;
+    paddingHorizontal = 20;
+  } else if (buttonStyle === 'calculatorSecondary') {
+    minWidth = 70;
+    paddingHorizontal = 20;
+    textColor = disabled
+      ? Colors.buttonHollowDisabledText
+      : Colors.buttonHollowText;
+    backgroundColor = Colors.buttonHollowBackground;
+    borderWidth = disabled ? 0 : 1;
   }
 
   const pressHandler = () => {
@@ -90,17 +111,19 @@ const Button = ({
           shadowOffset,
           shadowRadius,
           margin: 2,
-          paddingTop: padding,
-          paddingBottom: padding,
-          paddingLeft: padding * 2,
-          paddingRight: padding * 2,
+          paddingTop: paddingVertical,
+          paddingBottom: paddingVertical,
+          paddingLeft: paddingHorizontal,
+          paddingRight: paddingHorizontal,
+          minWidth,
           flexDirection: 'row',
         }}>
         {iconName !== undefined && (
           <Icon
             icon={iconName}
             iconSize={iconSize}
-            containerStyle={{paddingRight: 5}}
+            containerStyle={{paddingRight: text.length > 0 ? 5 : 0}}
+            color={iconColor}
           />
         )}
         <Text size={textSize} bold={textBold} color={textColor}>
@@ -118,6 +141,7 @@ Button.defaultProps = {
   size: 'Large',
   iconName: undefined,
   iconSize: 16,
+  iconColor: Colors.buttonPrimaryBackground,
 };
 
 export default Button;

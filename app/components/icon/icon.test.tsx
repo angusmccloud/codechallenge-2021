@@ -44,4 +44,8 @@ describe('Icon Component rendered correctly', () => {
     const icon = renderer.create(<Icon icon={eIcons.aboutFocused} />);
     expect(icon).toMatchSnapshot();
   });
+  it('Backspace Icon', () => {
+    const icon = renderer.create(<Icon icon={eIcons.backspace} />);
+    expect(icon).toMatchSnapshot();
+  });
 });

@@ -57,6 +57,8 @@ const iconName = (name: eIcons) => {
       return 'person-outline';
     case eIcons.aboutFocused:
       return 'person';
+    case eIcons.backspace:
+      return 'backspace-outline';
     default:
       return 'home';
   }
