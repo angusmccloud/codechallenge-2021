@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, ViewStyle, Image} from 'react-native';
+import {View, ViewStyle} from 'react-native';
 import {Colors, Styles} from 'styles';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import {eIcons} from 'models';

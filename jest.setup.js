@@ -3,7 +3,7 @@ import Adapter from 'enzyme-adapter-react-16';
 import { NativeModules } from 'react-native';
 import mockAsyncStorage from '@react-native-async-storage/async-storage/jest/async-storage-mock';
 import { JSDOM } from "jsdom"
-const dom = new JSDOM()
+const dom = new JSDOM();
 
 configure({ adapter: new Adapter() });
 
@@ -53,6 +53,8 @@ jest.mock('react-native-gesture-handler', () => {
     Directions: {},
   };
 });
+
+jest.mock('react-native/Libraries/Animated/NativeAnimatedHelper'); 
 
 jest.mock('@react-native-async-storage/async-storage', () => mockAsyncStorage);
 

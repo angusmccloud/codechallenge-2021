@@ -1,4 +1,4 @@
-import displayDate from 'utils/displayDate/displayDate';
 import initialsFromString from 'utils/initialsFromString/initialsFromString';
+import calculate from 'utils/calculate/calculate';
 
-export {displayDate, initialsFromString};
+export {initialsFromString, calculate};
