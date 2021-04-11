@@ -30,7 +30,11 @@ const TaskOneScreen = ({route, navigation}): React.ReactElement => {
   }
 
   let calculatable = true;
-  if (formulaArray.length < 3 || formula.substr(-1) === ' ') {
+  if (
+    formulaArray.length < 3 ||
+    formula.substr(-1) === ' ' ||
+    formula.substr(-1) === '.'
+  ) {
     calculatable = false;
   }
 
