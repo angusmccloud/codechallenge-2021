@@ -57,7 +57,17 @@ const TaskOneScreen = ({route, navigation}): React.ReactElement => {
           formula.substr(-3) === ' - ' ||
           formula.substr(-3) === ' + '
         ) {
-          setFormula(`${formula.substr(0, formula.length - 3)} ${button} `);
+          // Handle the use-case of a "* -3" then replacing the - needs to replace * and -
+          let newFormula = formula.substr(0, formula.length - 3);
+          if (
+            newFormula.substr(-3) === ' % ' ||
+            newFormula.substr(-3) === ' x ' ||
+            newFormula.substr(-3) === ' - ' ||
+            newFormula.substr(-3) === ' + '
+          ) {
+            newFormula = newFormula.substr(0, newFormula.length - 3);
+          }
+          setFormula(`${newFormula} ${button} `);
         } else {
           setFormula(`${formula} ${button} `);
         }
