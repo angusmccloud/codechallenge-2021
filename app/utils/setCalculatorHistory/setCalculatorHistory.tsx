@@ -13,7 +13,7 @@ const setCalculatorHistory = async (
     formula,
     result,
     timestamp,
-    key
+    key,
   };
   currentHistory.unshift(obj);
   try {

@@ -5,14 +5,14 @@ const getCalculatorHistory = async (): Promise<iCalcHistory[]> => {
   try {
     const jsonValue = await AsyncStorage.getItem('@calculatorHistory');
     const result: iCalcHistory[] = [];
-    if(jsonValue !== null) {
+    if (jsonValue !== null) {
       const parsed = JSON.parse(jsonValue);
       for (let i = 0; i < parsed.length; i++) {
         result.push({
           formula: parsed[i].formula,
           result: parsed[i].result,
           timestamp: parsed[i].timestamp,
-          key: parsed[i].key
+          key: parsed[i].key,
         });
       }
       // result.reverse;

@@ -2,7 +2,6 @@ import React, {useState, useEffect} from 'react';
 import {
   SafeAreaView,
   View,
-  ScrollView,
   TouchableWithoutFeedback,
   FlatList,
 } from 'react-native';
@@ -101,151 +100,151 @@ const TaskOneScreen = ({route, navigation}): React.ReactElement => {
     </TouchableWithoutFeedback>
   );
 
-  const renderHeader = () => (  
-      <View style={{padding: 10, paddingBottom: 0, alignItems: 'center'}}>
-        {history.length > 0 && <Text bold>Calculator History</Text>}
-      </View>
+  const renderHeader = () => (
+    <View style={{padding: 10, paddingBottom: 0, alignItems: 'center'}}>
+      {history.length > 0 && <Text bold>Calculator History</Text>}
+    </View>
   );
 
   return (
     <SafeAreaView>
       <View style={Styles.body}>
-      <View style={{padding: 20}}>
-        <Text size="L">{formula}</Text>
-      </View>
-      <View style={Styles.calculatorRow}>
-        <Button
-          onPress={() => buttonPress(7)}
-          text="7"
-          buttonStyle="calculatorPrimary"
-          size="Large"
-        />
-        <Button
-          onPress={() => buttonPress(8)}
-          text="8"
-          buttonStyle="calculatorPrimary"
-          size="Large"
-        />
-        <Button
-          onPress={() => buttonPress(9)}
-          text="9"
-          buttonStyle="calculatorPrimary"
-          size="Large"
-        />
-        <Button
-          onPress={() => buttonPress('+')}
-          text="+"
-          buttonStyle="calculatorSecondary"
-          size="Large"
-          disabled={formula.length === 0}
-        />
-      </View>
-      <View style={Styles.calculatorRow}>
-        <Button
-          onPress={() => buttonPress(4)}
-          text="4"
-          buttonStyle="calculatorPrimary"
-          size="Large"
-        />
-        <Button
-          onPress={() => buttonPress(5)}
-          text="5"
-          buttonStyle="calculatorPrimary"
-          size="Large"
-        />
-        <Button
-          onPress={() => buttonPress(6)}
-          text="6"
-          buttonStyle="calculatorPrimary"
-          size="Large"
-        />
-        <Button
-          onPress={() => buttonPress('-')}
-          text="-"
-          buttonStyle="calculatorSecondary"
-          size="Large"
-        />
-      </View>
-      <View style={Styles.calculatorRow}>
-        <Button
-          onPress={() => buttonPress(1)}
-          text="1"
-          buttonStyle="calculatorPrimary"
-          size="Large"
-        />
-        <Button
-          onPress={() => buttonPress(2)}
-          text="2"
-          buttonStyle="calculatorPrimary"
-          size="Large"
-        />
-        <Button
-          onPress={() => buttonPress(3)}
-          text="3"
-          buttonStyle="calculatorPrimary"
-          size="Large"
-        />
-        <Button
-          onPress={() => buttonPress('x')}
-          text="x"
-          buttonStyle="calculatorSecondary"
-          size="Large"
-          disabled={formula.length === 0}
-        />
-      </View>
-      <View style={Styles.calculatorRow}>
-        <Button
-          onPress={() => buttonPress('.')}
-          text="."
-          buttonStyle="calculatorPrimary"
-          size="Large"
-          disabled={!allowDecimal}
-        />
-        <Button
-          onPress={() => buttonPress(0)}
-          text="0"
-          buttonStyle="calculatorPrimary"
-          size="Large"
-          disabled={formula.length === 0}
-        />
-        <Button
-          onPress={() => buttonPress('backspace')}
-          text=""
-          iconName={eIcons.backspace}
-          iconSize={Typography.fontSizeL}
-          iconColor={
-            formula.length > 0
-              ? Colors.buttonHollowText
-              : Colors.buttonHollowDisabledText
-          }
-          buttonStyle="calculatorSecondary"
-          size="Large"
-          disabled={formula.length === 0}
-        />
-        <Button
-          onPress={() => buttonPress('%')}
-          text="%"
-          buttonStyle="calculatorSecondary"
-          size="Large"
-          disabled={formula.length === 0}
-        />
-      </View>
-      <View style={Styles.calculatorRow}>
-        <Button
-          onPress={() => buttonPress('clear')}
-          text="Clear"
-          buttonStyle="calculatorSecondaryWide"
-          size="Large"
-          disabled={formula.length === 0}
-        />
-        <Button
-          onPress={() => buttonPress('calculate')}
-          text="Calculate"
-          buttonStyle="calculatorSecondaryWide"
-          size="Large"
-          disabled={!calculatable}
-        />
-      </View>
+        <View style={{padding: 20}}>
+          <Text size="L">{formula}</Text>
+        </View>
+        <View style={Styles.calculatorRow}>
+          <Button
+            onPress={() => buttonPress(7)}
+            text="7"
+            buttonStyle="calculatorPrimary"
+            size="Large"
+          />
+          <Button
+            onPress={() => buttonPress(8)}
+            text="8"
+            buttonStyle="calculatorPrimary"
+            size="Large"
+          />
+          <Button
+            onPress={() => buttonPress(9)}
+            text="9"
+            buttonStyle="calculatorPrimary"
+            size="Large"
+          />
+          <Button
+            onPress={() => buttonPress('+')}
+            text="+"
+            buttonStyle="calculatorSecondary"
+            size="Large"
+            disabled={formula.length === 0}
+          />
+        </View>
+        <View style={Styles.calculatorRow}>
+          <Button
+            onPress={() => buttonPress(4)}
+            text="4"
+            buttonStyle="calculatorPrimary"
+            size="Large"
+          />
+          <Button
+            onPress={() => buttonPress(5)}
+            text="5"
+            buttonStyle="calculatorPrimary"
+            size="Large"
+          />
+          <Button
+            onPress={() => buttonPress(6)}
+            text="6"
+            buttonStyle="calculatorPrimary"
+            size="Large"
+          />
+          <Button
+            onPress={() => buttonPress('-')}
+            text="-"
+            buttonStyle="calculatorSecondary"
+            size="Large"
+          />
+        </View>
+        <View style={Styles.calculatorRow}>
+          <Button
+            onPress={() => buttonPress(1)}
+            text="1"
+            buttonStyle="calculatorPrimary"
+            size="Large"
+          />
+          <Button
+            onPress={() => buttonPress(2)}
+            text="2"
+            buttonStyle="calculatorPrimary"
+            size="Large"
+          />
+          <Button
+            onPress={() => buttonPress(3)}
+            text="3"
+            buttonStyle="calculatorPrimary"
+            size="Large"
+          />
+          <Button
+            onPress={() => buttonPress('x')}
+            text="x"
+            buttonStyle="calculatorSecondary"
+            size="Large"
+            disabled={formula.length === 0}
+          />
+        </View>
+        <View style={Styles.calculatorRow}>
+          <Button
+            onPress={() => buttonPress('.')}
+            text="."
+            buttonStyle="calculatorPrimary"
+            size="Large"
+            disabled={!allowDecimal}
+          />
+          <Button
+            onPress={() => buttonPress(0)}
+            text="0"
+            buttonStyle="calculatorPrimary"
+            size="Large"
+            disabled={formula.length === 0}
+          />
+          <Button
+            onPress={() => buttonPress('backspace')}
+            text=""
+            iconName={eIcons.backspace}
+            iconSize={Typography.fontSizeL}
+            iconColor={
+              formula.length > 0
+                ? Colors.buttonHollowText
+                : Colors.buttonHollowDisabledText
+            }
+            buttonStyle="calculatorSecondary"
+            size="Large"
+            disabled={formula.length === 0}
+          />
+          <Button
+            onPress={() => buttonPress('%')}
+            text="%"
+            buttonStyle="calculatorSecondary"
+            size="Large"
+            disabled={formula.length === 0}
+          />
+        </View>
+        <View style={Styles.calculatorRow}>
+          <Button
+            onPress={() => buttonPress('clear')}
+            text="Clear"
+            buttonStyle="calculatorSecondaryWide"
+            size="Large"
+            disabled={formula.length === 0}
+          />
+          <Button
+            onPress={() => buttonPress('calculate')}
+            text="Calculate"
+            buttonStyle="calculatorSecondaryWide"
+            size="Large"
+            disabled={!calculatable}
+          />
+        </View>
         <FlatList
           data={history}
           renderItem={renderItem}
