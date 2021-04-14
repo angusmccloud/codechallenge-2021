@@ -9,7 +9,7 @@ This project was bootstrapped with Create React Native App with Typescript. Belo
 
 After cloning the repoitory you should:
 * Install NPM Packages `npm install`
-* Then install CocoaPod dependencies `cd ios && pods install && cd ..`
+* Then install CocoaPod dependencies `cd ios && pod install && cd ..`
 
 ## Running In a Simulator
 
