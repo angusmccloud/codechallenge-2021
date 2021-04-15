@@ -48,10 +48,4 @@ Once your application is signed you can create a package that can be distributed
   * You should also be able to build the archive via Command Line with `npx react-native run-ios --configuration Release`, but you'll need to open Xcode for the next step regardless
 * In the Organizer window (choose Window -> Organizer) you will see the archive that you created
 * You can then choose Distribute App, follow the prompts (choose App Store Connect for distribution method), and it will upload to iTunes Connect
-* In [iTunes Connect](https://appstoreconnect.apple.com/apps/) you then choose your application, go to the TestFlight tabm and once Apple has approved for testing you can choose the users or user-groups to send the application to
-
-## Version Number and Last Updated Date
-
-The app is setup to pull the Version Number from xcode (In xcode where you manage Version and Build numbers).
-
-Apple doesn't have an out-of-the-box Build Date, so we added Build Phases Run Script in xcode that updates the versionInfo/buildDate.tsx file every time xcode does a build or archive. This could easily be replaced with another process if you want to manage the date manually, but this should work for all iOS builds (and the versionInfo.tsx file explains how to do this for Android if you expand there in the future)
+* In [iTunes Connect](https://appstoreconnect.apple.com/apps/) you then choose your application, go to the TestFlight tab, and once Apple has approved for testing you can choose the users or user-groups to send the application to
