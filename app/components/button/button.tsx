@@ -47,6 +47,7 @@ const Button = ({
   let shadowRadius = 2;
   let shadowOffset = {width: 0, height: 2};
   let shadowOpacity = 0.4;
+  let elevation = 3;
   let paddingVertical = size === 'Small' ? 10 : 14;
   let paddingHorizontal = size === 'Small' ? 20 : 28;
   let minWidth = '1%';
@@ -71,6 +72,7 @@ const Button = ({
     shadowRadius = 0;
     shadowOpacity = 0;
     shadowOffset = {width: 0, height: 0};
+    elevation = 0;
     textColor = disabled
       ? Colors.buttonSecondaryDisabledText
       : Colors.buttonSecondaryText;
@@ -119,6 +121,7 @@ const Button = ({
           shadowOpacity,
           shadowOffset,
           shadowRadius,
+          elevation,
           margin: 2,
           paddingTop: paddingVertical,
           paddingBottom: paddingVertical,
