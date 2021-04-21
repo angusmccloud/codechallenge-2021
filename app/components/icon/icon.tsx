@@ -42,9 +42,9 @@ const iconName = (name: eIcons) => {
     case eIcons.taskOneFocused:
       return 'calculator';
     case eIcons.taskTwo:
-      return 'airplane-outline';
+      return 'timer-outline';
     case eIcons.taskTwoFocused:
-      return 'airplane';
+      return 'timer';
     case eIcons.taskThree:
       return 'bar-chart-outline';
     case eIcons.taskThreeFocused:
