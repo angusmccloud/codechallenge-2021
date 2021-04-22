@@ -48,4 +48,12 @@ describe('Icon Component rendered correctly', () => {
     const icon = renderer.create(<Icon icon={eIcons.backspace} />);
     expect(icon).toMatchSnapshot();
   });
+  it('Plus Icon', () => {
+    const icon = renderer.create(<Icon icon={eIcons.plus} />);
+    expect(icon).toMatchSnapshot();
+  });
+  it('Minus Icon', () => {
+    const icon = renderer.create(<Icon icon={eIcons.minus} />);
+    expect(icon).toMatchSnapshot();
+  });
 });

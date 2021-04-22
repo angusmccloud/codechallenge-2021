@@ -10,4 +10,6 @@ export enum eIcons {
   about,
   aboutFocused,
   backspace,
+  plus,
+  minus,
 }

@@ -59,6 +59,10 @@ const iconName = (name: eIcons) => {
       return 'person';
     case eIcons.backspace:
       return 'backspace-outline';
+    case eIcons.plus:
+      return 'add-outline';
+    case eIcons.minus:
+      return 'remove-outline';
     default:
       return 'home';
   }
