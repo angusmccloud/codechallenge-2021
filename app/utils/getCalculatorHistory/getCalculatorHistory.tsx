@@ -19,7 +19,7 @@ const getCalculatorHistory = async (): Promise<iCalcHistory[]> => {
     }
     return result;
   } catch (e) {
-    console.log('-- Error fetching Async Default Center --', e);
+    console.log('-- Error fetching Async Calculator History --', e);
     return [];
   }
 };

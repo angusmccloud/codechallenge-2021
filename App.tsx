@@ -2,7 +2,6 @@ import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator, StackNavigationOptions} from '@react-navigation/stack';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import Ionicons from 'react-native-vector-icons/Ionicons';
 import {
   TaskOneScreen,
   TaskTwoScreen,
@@ -39,7 +38,7 @@ function TaskOneStackScreen() {
 function TaskTwoStackScreen() {
   return (
     <TaskTwoStack.Navigator screenOptions={NavOptions}>
-      <TaskTwoStack.Screen name="Task Two" component={TaskTwoScreen} />
+      <TaskTwoStack.Screen name="Task Two - Pomodora Timer" component={TaskTwoScreen} />
     </TaskTwoStack.Navigator>
   );
 }
@@ -75,6 +74,7 @@ const App = () => {
   return (
     <NavigationContainer>
       <Tab.Navigator
+        tabBarOptions={{activeTintColor: Colors.blueDark, labelStyle: {fontSize: Typography.fontSizeXXS}}}
         screenOptions={({route}) => ({
           tabBarIcon: ({focused, color, size}) => {
             let iconName: eIcons = eIcons.taskOne;
@@ -93,7 +93,7 @@ const App = () => {
 
             // You can return any component that you like here!
             return (
-              <Icon icon={iconName} iconSize={size} />
+              <Icon icon={iconName} iconSize={size} color={Colors.blueDark} />
             );
           },
         })}>

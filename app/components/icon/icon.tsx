@@ -42,9 +42,9 @@ const iconName = (name: eIcons) => {
     case eIcons.taskOneFocused:
       return 'calculator';
     case eIcons.taskTwo:
-      return 'airplane-outline';
+      return 'timer-outline';
     case eIcons.taskTwoFocused:
-      return 'airplane';
+      return 'timer';
     case eIcons.taskThree:
       return 'bar-chart-outline';
     case eIcons.taskThreeFocused:
@@ -59,6 +59,10 @@ const iconName = (name: eIcons) => {
       return 'person';
     case eIcons.backspace:
       return 'backspace-outline';
+    case eIcons.plus:
+      return 'add-outline';
+    case eIcons.minus:
+      return 'remove-outline';
     default:
       return 'home';
   }
