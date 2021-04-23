@@ -7,7 +7,7 @@ const getTimerDefaults = async (): Promise<any> => {
     let result = {
       task: 25 * 60 * 1000,
       break: 5 * 60 * 1000,
-      longBreak: 25 * 60 * 1000
+      longBreak: 25 * 60 * 1000,
     };
     if (jsonValue !== null) {
       const parsed = JSON.parse(jsonValue);

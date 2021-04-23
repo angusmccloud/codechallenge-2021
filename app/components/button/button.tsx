@@ -67,7 +67,7 @@ const Button = ({
       : Colors.buttonHollowText;
     backgroundColor = Colors.buttonHollowBackground;
     borderWidth = disabled ? 0 : 1;
-    paddingVertical = paddingVertical - 1; // account for border, keep same height
+    paddingVertical -= 1; // account for border, keep same height
   } else if (buttonStyle === 'tertiary') {
     borderRadius = 0;
     shadowRadius = 0;
@@ -89,7 +89,7 @@ const Button = ({
       : Colors.buttonHollowText;
     backgroundColor = Colors.buttonHollowBackground;
     borderWidth = disabled ? 0 : 1;
-    paddingVertical = paddingVertical - 1; // account for border, keep same height
+    paddingVertical -= 1; // account for border, keep same height
   } else if (buttonStyle === 'calculatorSecondaryWide') {
     minWidth = '44%';
     paddingHorizontal = 20;

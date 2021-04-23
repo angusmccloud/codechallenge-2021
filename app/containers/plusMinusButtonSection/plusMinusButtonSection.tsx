@@ -1,13 +1,18 @@
 import React from 'react';
-import {
-  View,
-  TouchableOpacity,
-} from 'react-native';
+import {View, TouchableOpacity} from 'react-native';
 import {Text, Icon} from 'components';
 import {eIcons} from 'models';
 import {Colors, Typography} from 'styles';
 
-const plusMinusButtonSection = (name: string, title: string, positiveDisabled: boolean, negativeDisabled: boolean, currentValue: number, increaseValue: (category: string) => void, decreaseValue: (category: string) => void): React.ReactElement => {
+const plusMinusButtonSection = (
+  name: string,
+  title: string,
+  positiveDisabled: boolean,
+  negativeDisabled: boolean,
+  currentValue: number,
+  increaseValue: (category: string) => void,
+  decreaseValue: (category: string) => void,
+): React.ReactElement => {
   return (
     <View>
       <View style={{alignItems: 'center'}}>
@@ -30,10 +35,9 @@ const plusMinusButtonSection = (name: string, title: string, positiveDisabled: b
             justifyContent: 'center',
             paddingLeft: 4,
             paddingRight: 4,
-            backgroundColor:
-              negativeDisabled
-                ? Colors.grayLight
-                : Colors.buttonPrimaryBackground,
+            backgroundColor: negativeDisabled
+              ? Colors.grayLight
+              : Colors.buttonPrimaryBackground,
           }}
           onPress={() => decreaseValue(name)}>
           <Icon

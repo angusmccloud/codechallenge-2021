@@ -74,6 +74,117 @@ exports[`Icon Component rendered correctly About Icon 1`] = `
 </View>
 `;
 
+exports[`Icon Component rendered correctly Backspace Icon 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "overflow": "hidden",
+      },
+      Object {
+        "alignItems": "center",
+        "justifyContent": "center",
+      },
+    ]
+  }
+>
+  <Text
+    allowFontScaling={false}
+    style={
+      Array [
+        Object {
+          "color": "#0f348e",
+          "fontSize": 50,
+        },
+        undefined,
+        Object {
+          "fontFamily": "Ionicons",
+          "fontStyle": "normal",
+          "fontWeight": "normal",
+        },
+        Object {},
+      ]
+    }
+  >
+    
+  </Text>
+</View>
+`;
+
+exports[`Icon Component rendered correctly Minus Icon 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "overflow": "hidden",
+      },
+      Object {
+        "alignItems": "center",
+        "justifyContent": "center",
+      },
+    ]
+  }
+>
+  <Text
+    allowFontScaling={false}
+    style={
+      Array [
+        Object {
+          "color": "#0f348e",
+          "fontSize": 50,
+        },
+        undefined,
+        Object {
+          "fontFamily": "Ionicons",
+          "fontStyle": "normal",
+          "fontWeight": "normal",
+        },
+        Object {},
+      ]
+    }
+  >
+    
+  </Text>
+</View>
+`;
+
+exports[`Icon Component rendered correctly Plus Icon 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "overflow": "hidden",
+      },
+      Object {
+        "alignItems": "center",
+        "justifyContent": "center",
+      },
+    ]
+  }
+>
+  <Text
+    allowFontScaling={false}
+    style={
+      Array [
+        Object {
+          "color": "#0f348e",
+          "fontSize": 50,
+        },
+        undefined,
+        Object {
+          "fontFamily": "Ionicons",
+          "fontStyle": "normal",
+          "fontWeight": "normal",
+        },
+        Object {},
+      ]
+    }
+  >
+    
+  </Text>
+</View>
+`;
+
 exports[`Icon Component rendered correctly Task Four Focused Icon 1`] = `
 <View
   style={
@@ -328,7 +439,7 @@ exports[`Icon Component rendered correctly Task Two Focused Icon 1`] = `
       ]
     }
   >
-    
+    
   </Text>
 </View>
 `;
@@ -365,7 +476,7 @@ exports[`Icon Component rendered correctly Task Two Icon 1`] = `
       ]
     }
   >
-    
+    
   </Text>
 </View>
 `;

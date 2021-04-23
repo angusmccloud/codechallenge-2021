@@ -1,9 +1,9 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const setTimerDefaults = async (
-  task: number, 
-  breakLength: number, 
-  longBreak: number
+  task: number,
+  breakLength: number,
+  longBreak: number,
 ): Promise<void> => {
   const obj = {
     task,

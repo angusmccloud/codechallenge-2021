@@ -4,13 +4,11 @@ import {
   View,
   Dimensions,
   LogBox,
-  TouchableOpacity,
 } from 'react-native';
-import {Text, Button, Icon} from 'components';
-import {plusMinusButtonSection} from 'containers'
+import {Text, Button} from 'components';
+import {plusMinusButtonSection} from 'containers';
 import {SkypeIndicator} from 'react-native-indicators';
-import {eIcons} from 'models';
-import {Styles, Colors, Typography} from 'styles';
+import {Styles, Colors} from 'styles';
 import {
   getTimerDefaults,
   setTimerDefaults,
@@ -68,11 +66,11 @@ const TaskTwoScreen = ({route, navigation}): React.ReactElement => {
   });
 
   const fullTime =
-  mode === 'task'
-    ? taskLength
-    : mode === 'break'
-    ? breakLength
-    : longBreakLength;
+    mode === 'task'
+      ? taskLength
+      : mode === 'break'
+      ? breakLength
+      : longBreakLength;
 
   const backgroundSwap = () => {
     if (timeLeft < 0 && timerRunning) {
@@ -134,7 +132,7 @@ const TaskTwoScreen = ({route, navigation}): React.ReactElement => {
         }
         setBreakLength(newLength);
         setTimerDefaults(taskLength, newLength, longBreakLength);
-      } else if (category === 'longBreak' ) {
+      } else if (category === 'longBreak') {
         const newLength =
           longBreakLength > 60 * 1000
             ? longBreakLength - 60 * 1000
@@ -259,7 +257,7 @@ const TaskTwoScreen = ({route, navigation}): React.ReactElement => {
             )}
             {timeLeft < 0 && (
               <Button
-                text={'Stop'}
+                text="Stop"
                 buttonStyle={timerRunning ? 'hollow' : 'primary'}
                 onPress={() => stopTimer()}
                 size="Small"
@@ -285,9 +283,33 @@ const TaskTwoScreen = ({route, navigation}): React.ReactElement => {
             paddingBottom: 20,
             height: '20%',
           }}>
-          {plusMinusButtonSection('task', 'Task', timerRunning, taskLength <= 60 * 1000, taskLength / 60 / 1000, increaseTime, decreaseTime)}
-          {plusMinusButtonSection('break', 'Break', timerRunning, breakLength <= 60 * 1000, breakLength / 60 / 1000, increaseTime, decreaseTime)}
-          {plusMinusButtonSection('longBreak', 'Long-Break', timerRunning, longBreakLength <= 60 * 1000, longBreakLength / 60 / 1000, increaseTime, decreaseTime)}
+          {plusMinusButtonSection(
+            'task',
+            'Task',
+            timerRunning,
+            taskLength <= 60 * 1000,
+            taskLength / 60 / 1000,
+            increaseTime,
+            decreaseTime,
+          )}
+          {plusMinusButtonSection(
+            'break',
+            'Break',
+            timerRunning,
+            breakLength <= 60 * 1000,
+            breakLength / 60 / 1000,
+            increaseTime,
+            decreaseTime,
+          )}
+          {plusMinusButtonSection(
+            'longBreak',
+            'Long-Break',
+            timerRunning,
+            longBreakLength <= 60 * 1000,
+            longBreakLength / 60 / 1000,
+            increaseTime,
+            decreaseTime,
+          )}
         </View>
       </View>
     </SafeAreaView>
