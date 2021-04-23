@@ -5,6 +5,8 @@ import getCalculatorHistory from 'utils/getCalculatorHistory/getCalculatorHistor
 import displayDate from 'utils/displayDate/displayDate';
 import setTimerDefaults from 'utils/setTimerDefaults/setTimerDefaults';
 import getTimerDefaults from 'utils/getTimerDefauls/getTimerDefaults';
+import setTimerHistory from 'utils/setTimerHistory/setTimerHistory';
+import getTimerHistory from 'utils/getTimerHistory/getTimerHistory';
 
 export {
   initialsFromString,
@@ -14,4 +16,6 @@ export {
   displayDate,
   setTimerDefaults,
   getTimerDefaults,
+  setTimerHistory,
+  getTimerHistory,
 };

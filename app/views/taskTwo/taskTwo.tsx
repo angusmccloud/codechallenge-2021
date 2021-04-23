@@ -10,7 +10,7 @@ import {Text, Button, Icon} from 'components';
 import {SkypeIndicator} from 'react-native-indicators';
 import {eIcons} from 'models';
 import {Styles, Colors, Typography} from 'styles';
-import {getTimerDefaults, setTimerDefaults} from 'utils';
+import {getTimerDefaults, setTimerDefaults, getTimerHistory, setTimerHistory} from 'utils';
 
 const deviceWidth = Dimensions.get('window').width;
 
@@ -25,6 +25,8 @@ const TaskTwoScreen = ({route, navigation}): React.ReactElement => {
   const [completedTasks, setCompletedTasks] = useState(0);
   const [appBackground, setAppBackground] = useState(Colors.appBackground);
   const [textColor, setTextColor] = useState(Colors.textDefault);
+  const emptyArray: any[] = []; // Annoying thing to silence Typescript
+  const [history, setHistory] = useState(emptyArray);
 
   const loadDefaultTimes = async () => {
     const times = await getTimerDefaults();
@@ -35,8 +37,14 @@ const TaskTwoScreen = ({route, navigation}): React.ReactElement => {
     setTimeLeft(times.task);
   };
 
+  const loadHistory = async () => {
+    const hist = await getTimerHistory();
+    setHistory(hist);
+  };
+
   useEffect(() => {
     loadDefaultTimes();
+    loadHistory();
     // Reanimated v2 still displays this warning sometimes even when the option is set, hiding it
     LogBox.ignoreLogs(['Animated: `useNativeDriver`']);
   }, []);
@@ -90,6 +98,7 @@ const TaskTwoScreen = ({route, navigation}): React.ReactElement => {
         newMode = 'longBreak';
         newTimeLeft = longBreakLength;
       }
+      setTimerHistory(new Date(), history); // update local storage
     }
 
     setTimeLeft(newTimeLeft);
@@ -176,6 +185,17 @@ const TaskTwoScreen = ({route, navigation}): React.ReactElement => {
   const indicatorColor =
     Colors.colorScale[40 - Math.round((timeLeft / fullTime) * 40)];
 
+  let completedToday = 0;
+  const todayTs = new Date();
+  const today = [todayTs.getFullYear(), todayTs.getMonth(),todayTs.getDate()].join("-");
+  for(let i = 0; i < history.length; i++) {
+    const checkDate = [history[i].timestamp.getFullYear(), history[i].timestamp.getMonth(),history[i].timestamp.getDate()].join("-");
+    if(today === checkDate) {
+      completedToday++;
+    }
+  }
+  const taskWord = completedToday === 1 ? 'Task' : 'Tasks';
+
   return (
     <SafeAreaView>
       <View style={[Styles.body, {backgroundColor: appBackground}]}>
@@ -192,6 +212,9 @@ const TaskTwoScreen = ({route, navigation}): React.ReactElement => {
               : mode === 'break'
               ? 'Take a Break'
               : 'Take a Long Break'}
+          </Text>
+          <Text color={textColor}>
+            {completedToday} {taskWord} Completed Today
           </Text>
         </View>
         <SkypeIndicator
